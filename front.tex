@@ -1,0 +1,55 @@
+\documentclass{dhbenelux}
+
+% define issue details
+\newcommand\thejournal{DH Benelux Journal}
+\newcommand\thejournalsubtitle{[Volume Title]}
+\newcommand\thevolume{[Number]}
+\newcommand\theseason{[Season]}
+\newcommand\theyear{[Year]}
+\newcommand\theissue{\thejournal \ \thevolume \ (\theyear)} 
+\newcommand\generaleditor{[Editors]}
+\newcommand\guesteditor{[Guest Editors]}
+\newcommand\typesetter{[Typesetter]}
+\sloppy
+\newcommand\thewebsite{https://journal.dhbenelux.org}
+\newcommand\MyCmd[1]{\mbox{}\clearpage\setcounter{page}{#1}}
+
+% packages
+\usepackage{xcolor}
+\usepackage{afterpage}
+
+% TITLEPAGE
+\date{}
+\begin{document}
+\pagenumbering{gobble}
+\color{white}
+\pagecolor{black}
+\begin{center}
+\Huge \thejournal 
+\vskip 2em 
+\huge \textsc{Volume~\thevolume: \\ \thejournalsubtitle}
+\vskip 1em
+\LARGE \theseason \ \theyear
+\vskip 2em
+\Large
+\vfill 
+\textsc{General Editors} \\ \generaleditor \vskip 1em 
+\textsc{Guest Editors} \\ \guesteditor
+\vfill
+\includegraphics[width=\textwidth]{logo.png}
+\end{center}
+
+\newpage
+\color{black}
+\pagecolor{white}
+
+\null\vfill\small
+\noindent\thejournal \ \thevolume. \thejournalsubtitle. \\ \par
+\noindent ISSN: 2666-6952 \\ \par
+\noindent\doclicenseIcon \ \theyear \\ \par 
+\noindent This journal, including all its contents, is licensed under a \doclicenseLongNameRef \ license, and made available in Open Access at \href{\thewebsite}{\thewebsite}. The authors of the individual contributions, who are identified as such, retain the copyright over their original work.  \\ \par
+\noindent For more information on the \doclicenseNameRef license, please refer to: \\ \doclicenseURL. \\ \par
+
+\noindent This journal was typeset in \LaTeX~by \typesetter using \emph{\href{https://github.com/WoutDLN/variantex}{varianTeX}} --- a reusable template for journals in the Humanities, developed by Wout Dillen. \emph{varianTeX} is open source, available on GitHub, and deposited in the \href{https://about.zenodo.org}{Zenodo Open Science Repository}. DOI: \href{https://zenodo.org/record/4015038#.X1I9mS2w2J8}{10.5281/zenodo.3484651}.
+
+\end{document}

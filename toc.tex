@@ -1,0 +1,47 @@
+\documentclass{book}
+\usepackage{tocloft}
+
+\renewcommand\cftchapafterpnum{\vskip10pt}
+\renewcommand\cftsecafterpnum{\vskip10pt}
+\newcommand\MyCmd[1]{\mbox{}\clearpage\setcounter{page}{#1}}
+
+\begin{document}
+ \tableofcontents
+ \pagenumbering{roman}
+ \thispagestyle{empty}
+
+\renewcommand{\partname}{}
+\renewcommand{\thepart}{}
+\renewcommand{\thesection}{}
+
+
+\MyCmd{1}
+\section{Editors' Preface}
+\MyCmd{3}
+\section{Introduction: [Conference/Preface Title]}
+\MyCmd{3}
+
+\pagenumbering{gobble}
+%\part{Essays}
+\addtocontents{toc}{\protect\Large\textbf{Essays}\vskip10pt}
+\MyCmd{1}
+\pagenumbering{arabic}
+\section{\textbf{I Catching. Computationally \\ Operationalising Narrative Perspective for Stylometric Analysis} \\ 
+Lisanne M. van Rossum, Joris J. van \\ Zundert, and Karina van Dalen-Oskam}
+\MyCmd{13}
+\section{\textbf{Reconstructing Gavin Douglas’s \\ Translation Practice in the \textit{Eneados} \\ Using a Corpus Linguistic-Based Method} \\ Megan Bushnell}
+\MyCmd{39}
+\section{\textbf{Using Linked Data to Track and Trace Processes of Canonization in Early \\ Modern Dutch Literature} \\ 
+Harm Nijboer, Lieke van Deinsen, Leon van Wissen, Judith Brouwer, Ton van Strien, and Frans Blom}
+\MyCmd{61}
+\section{\textbf{Vehemence and Victims: Emotion \\ Mining Historical Parliamentary \\ Debates on War Victims in the \\ Netherlands} \\ 
+Milan van Lange and Ralf Futselaar}
+\MyCmd{81}
+\section{\textbf{\#Bookstagram and Beyond. The \\ Presence and Depiction of the \\ Bachmann Literary Prize on Social \\ Media (2007-2017)} \\ 
+Lore De Greve and Gunther Martens}
+\MyCmd{103}
+\section{\textbf{The Digital Humanities Classroom as a ``Node''. From Toolbox to Mindset?} \\ 
+Florentina Armaselu}
+
+
+\end{document}
