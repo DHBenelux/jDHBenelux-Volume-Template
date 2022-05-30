@@ -52,7 +52,6 @@
 \usepackage[x11names,table,dvipsnames]{xcolor}
 \usepackage[hyphens]{url}                       % simple URL typesetting
 \usepackage{footmisc}                           % Make sure this is loaded before hyperref to avoid breaking footnote hyperlinks        
-\usepackage{hyperref}                           % hyperlinks
 \usepackage{booktabs}                           % professional-quality tables
 \usepackage{nicefrac}                           % compact symbols for 1/2, etc.
 \usepackage{microtype}                          % microtypography
@@ -74,6 +73,32 @@
     modifier={by},
     version={4.0},
 ]{doclicense}
+
+%%%%%%%%%%%%%%%%%%
+% fix Hyperref
+%%%%%%%%%%%%%%%%%%
+
+% for correct treatment of hyperlinks
+% pdfusetitle and other options are loaded because hyperref was giving a lot of warnings. 
+% this fix found at: https://albertsk.org/2019/10/10/how-to-avoid-warning-messages-from-hyperref-package-in-latex/
+
+% this fix resolved most of the warnings in jDHBenelux v4
+% except: three warnings remained in Zandhuis (2022) in that issue
+% since these errors are benign, I decided to ignore the remaining ones for now 
+
+% // WD
+
+\usepackage[unicode=true,pdfusetitle,
+   bookmarks=true, 
+   bookmarksnumbered=false, 
+   bookmarksopen=false,
+   breaklinks=false, 
+   pdfborder={0 0 1}, 
+   backref=false, 
+   colorlinks=false]{hyperref}
+
+\hypersetup{pdfauthor={Wout Dillen}}
+
 
 %%%%%%%%%%%%%%%%%%
 % encoding
@@ -105,30 +130,6 @@
 }
 \setkomafont{caption}{\footnotesize}    % smaller font size for captions
 
-
-%%%%%%%%%%%%%%%%%%
-% contributor
-%%%%%%%%%%%%%%%%%%
-% Title and Author of individual contributions
-\makeatletter
-% paper/review author = contributor
-\newcommand\contributor[1]{\renewcommand\@contributor{#1}}
-\newcommand\@contributor{}
-\newcommand\thecontributor{\@contributor} 
-% paper/review title = contribution
-\newcommand\contribution[1]{\renewcommand\@contribution{#1}}
-\newcommand\@contribution{}
-\newcommand\thecontribution{\@contribution}
-% short contributor for running header
-\newcommand\shortcontributor[1]{\renewcommand\@shortcontributor{#1}}
-\newcommand\@shortcontributor{}
-\newcommand\theshortcontributor{\@shortcontributor} 
-% short title for running header
-\newcommand\shortcontribution[1]{\renewcommand\@shortcontribution{#1}}
-\newcommand\@shortcontribution{}
-\newcommand\theshortcontribution{\@shortcontribution}
-\makeatother
-
 %%%%%%%%%%%%%%%%%%
 % Title page
 %%%%%%%%%%%%%%%%%%
@@ -154,13 +155,11 @@
 
 \newcommand{\keywords}[1]{\textbf{Keywords:} #1}
 
-% TO DO: DH Benelux logo
-
 %%%%%%%%%%%%%%%%%%
 % Bibliography
 %%%%%%%%%%%%%%%%%%
 \usepackage[sort&compress,semicolon,authoryear]{natbib} % for citations
-\bibliographystyle{humannat}
+\bibliographystyle{plainnat}
 
 
 %%%%%%%%%%%%%%%%%%
@@ -181,20 +180,6 @@
 \AtEndEnvironment{quote}{\vskip 1em}
 
 \setkomafont{caption}{\footnotesize}
-
-
-% Keywords
-%\newenvironment{keywords}{
-%\setlength{\parindent}{0pt} \begin{adjustwidth}{2em}{2em}\footnotesize\emph{Keywords}: }{%
-%\vskip 1em\end{adjustwidth}
-%}{}
-
-% Review Abstract
-\newenvironment{reviewed}{% 
-\setlength{\parindent}{0pt}
-    \begin{adjustwidth}{2em}{2em}\footnotesize}{%
-\vskip 1em\end{adjustwidth}
-}{}
 
 % Motto
 \newenvironment{motto}{% 
@@ -256,14 +241,6 @@
 % no line under running title; cannot be \@z but needs to be 0pt
 \renewcommand{\headrulewidth}{0 pt} 
 
-% includes copyright statement in any \thispagestyle{contributiontitlepage}
-\fancypagestyle{papertitlepage}{
-    \fancyhead[C]{\scriptsize\centering\copyrightstatement}
-    \fancyfoot[C]{\centering\thepage}
-}
-
-
-
 %%%%%%%%%%%%%%%%%%
 % footnoteformat
 %%%%%%%%%%%%%%%%%%
@@ -276,9 +253,6 @@
     \hspace{1.5em}                              % space between footnote mark and footnote text
 }    
 \newcommand{\mytodo}[1]{\textcolor{red}{#1}}
-
-
-
 
 %%%%%%%%%%%%%%%%%%
 % Proofs
