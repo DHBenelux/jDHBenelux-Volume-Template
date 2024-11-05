@@ -4,14 +4,27 @@
 % Version History:
 % - v1.0: 2019/09/04
 % - v1.1: 2021/07/01
-%
-%
+% - v2.0: 2022/05/06
+% - v2.1: 2024/10/31 -- Happy Halloween!
+% - v2.1.0: 2024/10/31
+% - v?
 %
 % Revision history:
 %
 % - v1.0 -> v1.1
-%      ltfamily is no longer defined, switch renewcommand to newcommand
-%
+%       ltfamily is no longer defined, switch renewcommand to newcommand
+% - v1.1 -> v2.0
+%       automatically archives new releases in Zenodo
+%       changelog: https://github.com/DHBenelux/jDHBenelux-author-template/releases/tag/v2.0
+% - v2.0 -> v2.1
+%       hyperref package moved up to fix hyperxmp issue
+%       added lmodern to fix palatino issue with missing font shapes
+%       removed fancyhdr which was no longer used, and caused issues with KOMAfont
+% - v2.1 -> v2.1.0
+%       no changes in the repository, only fixed Zenodo synchronisation
+% - v2.1.0 -> v?
+%       fixed small typo in revision history, and added v2.1.0 update
+%       ...
 %%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
@@ -51,7 +64,15 @@
 %%%%%%%%%%%%%%%%%%
 \usepackage[x11names,table,dvipsnames]{xcolor}
 \usepackage[hyphens]{url}                       % simple URL typesetting
-\usepackage{footmisc}                           % Make sure this is loaded before hyperref to avoid breaking footnote hyperlinks        
+\usepackage{footmisc}                           % Make sure this is loaded before hyperref to avoid breaking footnote hyperlinks    
+\usepackage[unicode=true,pdfusetitle,           % fixes hyperref issue
+   bookmarks=true, 
+   bookmarksnumbered=false, 
+   bookmarksopen=false,
+   breaklinks=false, 
+   pdfborder={0 0 1}, 
+   backref=false, 
+   colorlinks=false]{hyperref}
 \usepackage{booktabs}                           % professional-quality tables
 \usepackage{nicefrac}                           % compact symbols for 1/2, etc.
 \usepackage{microtype}                          % microtypography
@@ -75,29 +96,14 @@
 ]{doclicense}
 
 %%%%%%%%%%%%%%%%%%
-% fix Hyperref
+% fix Hyperref (cont.)
 %%%%%%%%%%%%%%%%%%
-
-% for correct treatment of hyperlinks
-% pdfusetitle and other options are loaded because hyperref was giving a lot of warnings. 
-% this fix found at: https://albertsk.org/2019/10/10/how-to-avoid-warning-messages-from-hyperref-package-in-latex/
-
-% this fix resolved most of the warnings in jDHBenelux v4
-% except: three warnings remained in Zandhuis (2022) in that issue
-% since these errors are benign, I decided to ignore the remaining ones for now 
-
+\hypersetup{pdfauthor={Wout Dillen}}            
+% requires hyperref package to be defined (see 'Packages' above)
+% fix originally found at: https://albertsk.org/2019/10/10/how-to-avoid-warning-messages-from-hyperref-package-in-latex/
+% FYI: the pdfauthor name is irrelevant, it just needs to have one. Feel free to change to another name.
+% moved the hyperref package up to fix further hyperxmp issue (v2.1 fix)
 % // WD
-
-\usepackage[unicode=true,pdfusetitle,
-   bookmarks=true, 
-   bookmarksnumbered=false, 
-   bookmarksopen=false,
-   breaklinks=false, 
-   pdfborder={0 0 1}, 
-   backref=false, 
-   colorlinks=false]{hyperref}
-
-\hypersetup{pdfauthor={Wout Dillen}}
 
 
 %%%%%%%%%%%%%%%%%%
@@ -120,6 +126,7 @@
 %%%%%%%%%%%%%%%%%%
 % Fonts
 %%%%%%%%%%%%%%%%%%
+\usepackage{lmodern}                    % fixes issue when font shapes can't be found in palatino
 % Palatino font options
 \usepackage{mathpazo}                   % Palatino in LaTeX math
 \usepackage{tgpagella}                  % Palatino font
@@ -225,22 +232,6 @@
 %    \setcounter{paragraph}{0}
 %    \setcounter{secnumdepth}{4}
     
-
-
-%%%%%%%%%%%%%%%%%%
-% headerfooter
-%%%%%%%%%%%%%%%%%%
-% running title
-\RequirePackage{fancyhdr}
-% cuts off running titles that are too long
-%\RequirePackage{truncate}
-% makes header as wide as geometry (SET SAME AS \TEXTWIDTH!)
-\setlength{\headwidth}{159mm} 
-
-\fancyfoot{}
-% no line under running title; cannot be \@z but needs to be 0pt
-\renewcommand{\headrulewidth}{0 pt} 
-
 %%%%%%%%%%%%%%%%%%
 % footnoteformat
 %%%%%%%%%%%%%%%%%%
