@@ -18,7 +18,7 @@
 \usepackage{xcolor}
 \usepackage{afterpage}
 
-% TITLEPAGE
+% COVER
 \date{}
 \begin{document}
 \pagenumbering{gobble}
@@ -39,6 +39,7 @@
 \includegraphics[width=\textwidth]{logo.png}
 \end{center}
 
+% COLOFON
 \newpage
 \color{black}
 \pagecolor{white}
@@ -51,5 +52,25 @@
 \noindent For more information on the \doclicenseNameRef license, please refer to: \\ \doclicenseURL. \\ \par
 
 \noindent This journal was typeset in \LaTeX~by \typesetter using \emph{\href{https://github.com/WoutDLN/variantex}{varianTeX}} --- a reusable template for journals in the Humanities, developed by Wout Dillen. \emph{varianTeX} is open source, available on GitHub, and deposited in the \href{https://about.zenodo.org}{Zenodo Open Science Repository}. DOI: \href{https://zenodo.org/record/4015038#.X1I9mS2w2J8}{10.5281/zenodo.3484651}.
+
+% TITLEPAGE
+\newpage
+\begin{center}
+\Huge \thejournal~\thevolume
+\vskip 2em 
+\huge \textsc{\thejournalsubtitle}
+\vskip 2em
+\Large
+\vfill 
+\textsc{General Editors} \\ \generaleditor \vskip 1em 
+\textsc{Guest Editors} \\ \guesteditor
+\vfill
+\end{center}
+
+% BLANK VERSO
+\clearpage
+\thispagestyle{empty}
+\hfill
+\clearpage
 
 \end{document}
