@@ -24,6 +24,7 @@
 %       no changes in the repository, only fixed Zenodo synchronisation
 % - v2.1.0 -> v?
 %       fixed small typo in revision history, and added v2.1.0 update
+%       updated the front to always start new chaptersc on rectos
 %       ...
 %%%%%%%%%%%%%%%%%%
 
